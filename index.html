@@ -5,163 +5,229 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Indian Defence Forces</title>
   <link rel="stylesheet" href="css/styles.css">
-  <style>
-    /* Full-screen background video */
-   /* Full-screen background video */
-#background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1; /* Keeps video in the background */
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-}
-
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  position: relative;
-  z-index: 1;
-}
-
-h1 {
-  margin: 0;
-  font-size: 3rem;
-}
-
-main {
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.container {
-  display: flex;
-  width: 80%;
-  margin:20px auto;
-  justify-content: space-around;
-  margin-top: 30px;
-}
-
-.box {
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 20px;
-  border-radius: 10px;
-  width: 30%;
-  text-align: center;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  position: relative; /* Required for dropdown positioning */
-}
-
-.box:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.dropdown {
-  display: none;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  top: 100%; /* Position the dropdown below the box */
-  left: 0;
-  width: 100%; /* Ensure it takes up full width */
-  background-color: rgba(248, 248, 248, 0.8); /* Make background more visible */
-  border-radius: 5px;
-}
-
-.dropdown li {
-  padding: 5px 0;
-}
-
-.dropdown a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  display: block;
-  padding: 10px;
-}
-
-.dropdown a:hover {
-  background-color: #b1c4ba; /* Add hover effect for links */
-}
-
-.box:hover .dropdown {
-  display: block;
-}
-
-/* Controls styling */
-.controls {
-  position: absolute;
-  top: 20px;
-  left: 20px;  /* Move controls to the top-left corner */
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  border-radius: 5px;
-}
-
-.controls button {
-  background-color: #3d3d3d;
-  color: white;
-  border: none;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.controls button:hover {
-  background-color: #ceb9b9;
-}
-
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+  /* Full-screen background video */
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Navigation Bar */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px 30px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 2px solid #ccc;
+  }
+  
+  nav .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #7b9b8b;
+    text-decoration: none;
+  }
+  
+  nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.7rem;
+    margin:0  1px;
+  
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+  
+  nav .nav-links a:hover {
+    background-color: #c5e2d3;
+    color: #000000;
+    border-radius: 5px;
+  }
+  
+  nav .controls button {
+    background-color: #7b9b8b;
+    color: #000;
+    border: none;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  nav .controls button:hover {
+    background-color: #7b9b8b;
+  }
+  
+  /* Header */
+  header {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 1;
+    border-bottom: 3px solid #ffffff;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ebebeb;
+    line-height: 0.1; /* Adjust line-height for better spacing */
+  }
+  
+  /* Main Section */
+  main {
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .box {
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .box:hover {
+    background-color: #7b9b8b;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+  
+  .dropdown {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+  }
+  
+  .dropdown li {
+    padding: 10px 0;
+  }
+  
+  .dropdown a {
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    padding: 10px 20px;
+    transition: all 0.3s;
+  }
+  
+  .dropdown a:hover {
+    background-color: #fdfffe;
+    color: #000000;
+  }
+  
+  .box:hover .dropdown {
+    display: block;
+  }
+  
+  /* Responsive Layout */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
     }
-
-    /* Responsive Layout */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .box {
-        width: 80%;
-        margin-bottom: 20px;
-      }
+  
+    nav .controls {
+      margin-left: auto;
     }
-  </style>
+  
+    .container {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .box {
+      width: 90%;
+    }
+  
+    nav .social-links a {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+  
+    .social-links a:hover {
+      color: #f1f1f1; /* Change color on hover */
+      transform: scale(1.8);
+    }
+  
+    .social-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>  
 </head>
 <body>
-
   <!-- Background Video -->
   <video id="background-video" autoplay loop muted>
     <source src="bgvideo.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <!-- Play/Pause and Mute/Unmute Buttons -->
-  <div class="controls">
-    <button id="playPauseButton">Pause</button>
-    <button id="muteButton">Unmute</button>
-  </div>
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#" class="logo">Defence Forces</a>
+    <div class="nav-links">
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://souravportfoliowebsite.vercel.app" target="_blank">Portfolio</a>
+    </div>
+    <div class="controls">
+      <button id="playPauseButton">Pause</button>
+      <button id="muteButton">Unmute</button>
+    </div>
+  </nav>
 
   <header>
     <h1>Indian Defence Forces</h1>
@@ -205,13 +271,9 @@ main {
   </main>
 
   <script>
-    // Play/Pause button functionality
     const playPauseButton = document.getElementById('playPauseButton');
+    const muteButton = document.getElementById('muteButton');
     const video = document.getElementById('background-video');
-    
-    window.onload = function() {
-      video.play(); // Ensure the video plays automatically when the page is loaded
-    };
 
     playPauseButton.addEventListener('click', function() {
       if (video.paused) {
@@ -223,9 +285,6 @@ main {
       }
     });
 
-    // Mute/Unmute button functionality
-    const muteButton = document.getElementById('muteButton');
-
     muteButton.addEventListener('click', function() {
       if (video.muted) {
         video.muted = false;
@@ -235,26 +294,6 @@ main {
         muteButton.textContent = 'Unmute';
       }
     });
-
-    // Toggle dropdown menus
-    // Toggle dropdown menus when hovering
-document.querySelectorAll('.box').forEach(box => {
-  box.addEventListener('mouseenter', () => {
-    const menu = box.querySelector('.dropdown');
-    if (menu) {
-      menu.style.display = 'block'; // Show the dropdown when hovering over the box
-    }
-  });
-
-  box.addEventListener('mouseleave', () => {
-    const menu = box.querySelector('.dropdown');
-    if (menu) {
-      menu.style.display = 'none'; // Hide the dropdown when mouse leaves the box
-    }
-  });
-});
-
   </script>
-
 </body>
 </html>
