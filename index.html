@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Defence Forces</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Full-screen background video */
+   /* Full-screen background video */
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Keeps video in the background */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin: 0;
+  font-size: 3rem;
+}
+
+main {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin:20px auto;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative; /* Required for dropdown positioning */
+}
+
+.box:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dropdown {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the box */
+  left: 0;
+  width: 100%; /* Ensure it takes up full width */
+  background-color: rgba(248, 248, 248, 0.8); /* Make background more visible */
+  border-radius: 5px;
+}
+
+.dropdown li {
+  padding: 5px 0;
+}
+
+.dropdown a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px;
+}
+
+.dropdown a:hover {
+  background-color: #b1c4ba; /* Add hover effect for links */
+}
+
+.box:hover .dropdown {
+  display: block;
+}
+
+/* Controls styling */
+.controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;  /* Move controls to the top-left corner */
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.controls button {
+  background-color: #3d3d3d;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.controls button:hover {
+  background-color: #ceb9b9;
+}
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .box {
+        width: 80%;
+        margin-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video id="background-video" autoplay loop muted>
+    <source src="bgvideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Play/Pause and Mute/Unmute Buttons -->
+  <div class="controls">
+    <button id="playPauseButton">Pause</button>
+    <button id="muteButton">Unmute</button>
+  </div>
+
+  <header>
+    <h1>Indian Defence Forces</h1>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="box" onclick="toggleMenu('army-menu')">
+        Indian Army
+        <ul id="army-menu" class="dropdown">
+          <li><a href="army/history.html">History</a></li>
+          <li><a href="army/structure.html">Structure</a></li>
+          <li><a href="army/commands.html">Commands</a></li>
+          <li><a href="army/order.html">Ranks</a></li>
+          <li><a href="army/equipment.html">Equipment</a></li>
+        </ul>
+      </div>
+
+      <div class="box" onclick="toggleMenu('airforce-menu')">
+        Indian Airforce
+        <ul id="airforce-menu" class="dropdown">
+          <li><a href="airforce/history.html">History</a></li>
+          <li><a href="airforce/structure.html">Structure</a></li>
+          <li><a href="airforce/commands.html">Commands</a></li>
+          <li><a href="airforce/order.html">Ranks</a></li>
+          <li><a href="airforce/equipment.html">Equipment</a></li>
+        </ul>
+      </div>
+
+      <div class="box" onclick="toggleMenu('navy-menu')">
+        Indian Navy
+        <ul id="navy-menu" class="dropdown">
+          <li><a href="navy/history.html">History</a></li>
+          <li><a href="navy/structure.html">Structure</a></li>
+          <li><a href="navy/commands.html">Commands</a></li>
+          <li><a href="navy/order.html">Ranks</a></li>
+          <li><a href="navy/equipment.html">Equipment</a></li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Play/Pause button functionality
+    const playPauseButton = document.getElementById('playPauseButton');
+    const video = document.getElementById('background-video');
+    
+    window.onload = function() {
+      video.play(); // Ensure the video plays automatically when the page is loaded
+    };
+
+    playPauseButton.addEventListener('click', function() {
+      if (video.paused) {
+        video.play();
+        playPauseButton.textContent = 'Pause';
+      } else {
+        video.pause();
+        playPauseButton.textContent = 'Play';
+      }
+    });
+
+    // Mute/Unmute button functionality
+    const muteButton = document.getElementById('muteButton');
+
+    muteButton.addEventListener('click', function() {
+      if (video.muted) {
+        video.muted = false;
+        muteButton.textContent = 'Mute';
+      } else {
+        video.muted = true;
+        muteButton.textContent = 'Unmute';
+      }
+    });
+
+    // Toggle dropdown menus
+    // Toggle dropdown menus when hovering
+document.querySelectorAll('.box').forEach(box => {
+  box.addEventListener('mouseenter', () => {
+    const menu = box.querySelector('.dropdown');
+    if (menu) {
+      menu.style.display = 'block'; // Show the dropdown when hovering over the box
+    }
+  });
+
+  box.addEventListener('mouseleave', () => {
+    const menu = box.querySelector('.dropdown');
+    if (menu) {
+      menu.style.display = 'none'; // Hide the dropdown when mouse leaves the box
+    }
+  });
+});
+
+  </script>
+
+</body>
+</html>

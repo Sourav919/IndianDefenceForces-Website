@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row; /* Align boxes horizontally */
+    justify-content: center; /* Center alignment */
+    gap: 20px; /* Add spacing between boxes */
+    margin-top: 20px;
+  }
+  
+  .box {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    background-color: #394655;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative; /* Establish positioning context for dropdown */
+  }
+  
+  .box:hover {
+    background-color: #2b3745;
+  }
+  
+  .dropdown {
+    display: none; /* Initially hidden */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute; /* Position relative to the parent `.box` */
+    top: 100%; /* Directly below the `.box` */
+    left: 0; /* Align with the left edge of `.box` */
+    width: 100%; /* Same width as the `.box` */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1000; /* Ensure it appears above other elements */
+  }
+  
+  .dropdown li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .dropdown li:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .dropdown li:hover {
+    background-color: #f0f0f0;
+  }
+  
